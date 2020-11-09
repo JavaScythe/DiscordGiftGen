@@ -3,22 +3,11 @@ import json
 import datetime
 import time
 import requests
-from replit import db
 #UI UPDATED
 #STABLE BUILD AS PUBLISHED
 #BEFORE MULTI-VERSION TESTING
-key = db["pass"]
 repeat = 0
 read_valids = input("Press enter to continue: ")
-if read_valids == key:
-  keys = db.keys()
-  print(keys)
-  valid_key = db["valid"]
-  valid_msg = db["message"]
-  valid_code = db["code"]
-  print(valid_key)
-  print(valid_msg)
-  print(valid_code)
 time.sleep(0.1)
 print("Connecting verification service")
 time.sleep(0.3)
@@ -51,10 +40,7 @@ for n in range(int(num)):
     print("get* did not return any value")
     break
   else:
-    print(" Invalid | https://discord.gifts/"+y)      
-    db["valid"] = y
-    db["message"] = data_json_loaded["message"]
-    db["code"] = data_json_loaded["code"]
+    print(" Invalid | https://discord.gifts/"+y)
     exit()
     break
 input("Enter to exit")
